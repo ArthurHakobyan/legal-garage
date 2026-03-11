@@ -6,7 +6,7 @@ import { stats, whyUs } from "../data/content";
   <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
 
     <!-- Text & stats -->
-    <div>
+    <div data-reveal="left" data-delay="0">
       <span class="text-[#dc2626] text-xs font-bold tracking-[0.2em] uppercase">O nás</span>
       <h2 class="text-3xl md:text-4xl font-black mt-3 mb-6">
         Vybudováno na důvěře,<br />poháněno kvalitou
@@ -29,7 +29,7 @@ import { stats, whyUs } from "../data/content";
     </div>
 
     <!-- Why choose us -->
-    <div class="bg-[#161616] border border-white/8 rounded-2xl p-8">
+    <div data-reveal="right" data-delay="200" class="bg-[#161616] border border-white/8 rounded-2xl p-8">
       <p class="text-[#dc2626] font-bold text-sm mb-6 uppercase tracking-widest">Proč zvolit Legal Garage?</p>
       <ul class="flex flex-col gap-4">
         {whyUs.map((item) => (

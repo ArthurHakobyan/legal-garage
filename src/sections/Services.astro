@@ -5,15 +5,15 @@ import { services } from "../data/content";
 <section id="services" class="py-24 px-4 bg-[#161616]">
   <div class="max-w-6xl mx-auto">
 
-    <div class="text-center mb-14">
+    <div data-reveal="up" data-delay="0" class="text-center mb-14">
       <span class="text-[#dc2626] text-xs font-bold tracking-[0.2em] uppercase">Co děláme</span>
       <h2 class="text-3xl md:text-4xl font-black mt-3">Naše služby</h2>
       <p class="text-gray-400 mt-3 max-w-md mx-auto">Profesionální péče o vozidlo zahrnující vše, co vaše auto potřebuje.</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {services.map((s) => (
-        <div class="group bg-[#111] border border-white/8 rounded-2xl p-7 hover:border-[#dc2626]/40 transition-all duration-300">
+      {services.map((s, i) => (
+        <div data-reveal="up" data-delay={i * 100} class="group bg-[#111] border border-white/8 rounded-2xl p-7 hover:border-[#dc2626]/40 transition-all duration-300">
           <div class="text-4xl mb-5">{s.icon}</div>
           <h3 class="font-bold text-lg mb-2 group-hover:text-[#dc2626] transition-colors">{s.title}</h3>
           <p class="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
