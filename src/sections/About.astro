@@ -1,0 +1,45 @@
+---
+import { stats, whyUs } from "../data/content";
+---
+
+<section id="about" class="py-24 px-4 bg-[#111]">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+
+    <!-- Text & stats -->
+    <div>
+      <span class="text-[#dc2626] text-xs font-bold tracking-[0.2em] uppercase">O nás</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-3 mb-6">
+        Vybudováno na důvěře,<br />poháněno kvalitou
+      </h2>
+      <p class="text-gray-400 leading-relaxed mb-4">
+        Legal Garage je pilířem naší komunity od roku 1998. Věříme v poctivou a transparentní práci — žádné skryté poplatky, žádné zbytečné opravy. Jen kvalitní servis za férové ceny.
+      </p>
+      <p class="text-gray-400 leading-relaxed mb-10">
+        Naši certifikovaní mechanici přinášejí desetiletí praktických zkušeností se všemi značkami a modely. Ať už jde o rutinní servis nebo velkou opravu, ke každému vozidlu přistupujeme jako ke svému vlastnímu.
+      </p>
+
+      <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/10">
+        {stats.map((s) => (
+          <div>
+            <div class="text-3xl font-black text-[#dc2626]">{s.value}</div>
+            <div class="text-xs text-gray-400 mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Why choose us -->
+    <div class="bg-[#161616] border border-white/8 rounded-2xl p-8">
+      <p class="text-[#dc2626] font-bold text-sm mb-6 uppercase tracking-widest">Proč zvolit Legal Garage?</p>
+      <ul class="flex flex-col gap-4">
+        {whyUs.map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="text-[#dc2626] font-black text-base mt-0.5">✓</span>
+            <span class="text-gray-300 text-sm">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { contact } from "../data/content";
+---
+
+<section id="contact" class="py-24 px-4 bg-[#161616]">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-14">
+      <span class="text-[#dc2626] text-xs font-bold tracking-[0.2em] uppercase">Kontaktujte nás</span>
+      <h2 class="text-3xl md:text-4xl font-black mt-3">Najděte nás</h2>
+      <p class="text-gray-400 mt-3">Chcete se objednat nebo máte otázku? Kontaktujte nás — rádi pomůžeme.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <a href={`tel:${contact.phone.replace(/\s|\(|\)|-/g, "")}`} class="group bg-[#111] border border-white/8 rounded-2xl p-7 text-center hover:border-[#dc2626]/40 transition-all duration-300">
+        <div class="text-3xl mb-4">📞</div>
+        <div class="font-bold mb-1">Telefon</div>
+        <span class="text-[#dc2626] text-sm group-hover:underline">{contact.phone}</span>
+      </a>
+
+      <a href={`mailto:${contact.email}`} class="group bg-[#111] border border-white/8 rounded-2xl p-7 text-center hover:border-[#dc2626]/40 transition-all duration-300">
+        <div class="text-3xl mb-4">✉️</div>
+        <div class="font-bold mb-1">E-mail</div>
+        <span class="text-[#dc2626] text-sm group-hover:underline">{contact.email}</span>
+      </a>
+
+      <div class="bg-[#111] border border-white/8 rounded-2xl p-7 text-center hover:border-[#dc2626]/40 transition-all duration-300">
+        <div class="text-3xl mb-4">📍</div>
+        <div class="font-bold mb-1">Adresa</div>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          {contact.address.split("\n").map((line, i) => (
+            <span>{line}{i < contact.address.split("\n").length - 1 && <br />}</span>
+          ))}
+        </p>
+      </div>
+
+      <div class="bg-[#111] border border-white/8 rounded-2xl p-7 text-center hover:border-[#dc2626]/40 transition-all duration-300">
+        <div class="text-3xl mb-4">🕐</div>
+        <div class="font-bold mb-1">Otevírací doba</div>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          {contact.hours.map((line, i) => (
+            <span>{line}{i < contact.hours.length - 1 && <br />}</span>
+          ))}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

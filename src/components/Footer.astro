@@ -1,0 +1,19 @@
+---
+const footerLinks = [
+  { label: "Služby",   href: "#services" },
+  { label: "O nás",   href: "#about" },
+  { label: "Kontakt", href: "#contact" },
+];
+---
+
+<footer class="py-6 px-4 border-t border-white/8 bg-[#111]">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-gray-500">
+    <span class="font-bold text-[#dc2626]">Legal Garage</span>
+    <span>© {new Date().getFullYear()} Legal Garage. Všechna práva vyhrazena.</span>
+    <nav class="flex gap-4">
+      {footerLinks.map(({ label, href }) => (
+        <a href={href} class="hover:text-[#dc2626] transition-colors">{label}</a>
+      ))}
+    </nav>
+  </div>
+</footer>

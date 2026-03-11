@@ -1,0 +1,92 @@
+---
+const navLinks = [
+  { label: "Služby",   href: "#services" },
+  { label: "O nás",   href: "#about" },
+  { label: "Kontakt", href: "#contact" },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-[#111]/95 backdrop-blur-md border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+
+    <a href="#" class="text-[#dc2626] font-black text-xl tracking-tight">
+      Legal Garage
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+      {navLinks.map(({ label, href }) => (
+        <li>
+          <a href={href} class="hover:text-[#dc2626] transition-colors">{label}</a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Desktop CTA -->
+    <a
+      href="tel:+1234567890"
+      class="hidden md:inline-flex items-center gap-2 bg-[#dc2626] text-black font-bold text-sm px-5 py-2 rounded-full hover:bg-red-500 transition-colors"
+    >
+     Objednat servis
+    </a>
+
+    <!-- Hamburger -->
+    <button id="menu-toggle" aria-label="Toggle menu" class="md:hidden flex flex-col justify-center gap-1.5 p-2 rounded">
+      <span class="hamburger-line block w-6 h-0.5 bg-white rounded"></span>
+      <span class="hamburger-line block w-6 h-0.5 bg-white rounded"></span>
+      <span class="hamburger-line block w-4 h-0.5 bg-white rounded"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden flex-col gap-1 px-4 pb-5 pt-2 border-t border-white/10" style="display: none;">
+    {navLinks.map(({ label, href }) => (
+      <a href={href} class="block py-3 text-sm font-medium text-gray-300 hover:text-[#dc2626] transition-colors border-b border-white/5">
+        {label}
+      </a>
+    ))}
+    <a
+      href="tel:+1234567890"
+      class="mt-3 flex items-center justify-center gap-2 bg-[#dc2626] text-black font-bold text-sm px-5 py-3 rounded-full"
+    >
+      Objednat servis
+    </a>
+  </div>
+</nav>
+
+<style>
+  #menu-toggle .hamburger-line {
+    transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+    transform-origin: center;
+  }
+
+  #menu-toggle.open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  #menu-toggle.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  #menu-toggle.open .hamburger-line:nth-child(3) {
+    width: 1.5rem;
+    transform: translateY(-8px) rotate(-45deg);
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu   = document.getElementById("mobile-menu");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.style.display === "flex";
+    if (menu) menu.style.display = isOpen ? "none" : "flex";
+    toggle.classList.toggle("open", !isOpen);
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      if (menu) menu.style.display = "none";
+      toggle?.classList.remove("open");
+    });
+  });
+</script>
